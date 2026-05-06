@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>رياضيات 101 | منصة تدريب الأقران - شروق الحربي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                packages: {'[+]': ['ams']}
+            },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" id="MathJax-script" async></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Tajawal', sans-serif; background: linear-gradient(145deg, #f0f9f7 0%, #e6f3f0 100%); color: #1f2937; line-height: 1.5; }
+        .app-wrapper { max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .hero-header { background: linear-gradient(115deg, #0a2e38 0%, #145c5a 100%); border-radius: 2rem; padding: 1.2rem 2rem; margin-bottom: 2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2); border-bottom: 3px solid #ffcd6b; }
+        .title-section h1 { font-size: 1.6rem; font-weight: 800; color: #fff3db; }
+        .title-section h1 i { color: #ffcd6b; margin-left: 8px; }
+        .title-section p { color: #cfe8e5; font-weight: 500; }
+        .beta-label { background: #ffcd6b20; backdrop-filter: blur(8px); padding: 0.4rem 1rem; border-radius: 2rem; border: 1px solid #ffcd6b; font-weight: 600; color: #ffe2a4; font-size: 0.8rem; }
+        .glass-card { background: rgba(255, 255, 255, 0.96); border-radius: 2rem; padding: 1.8rem; margin-bottom: 2rem; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); border: 1px solid rgba(20, 92, 90, 0.2); }
+        .section-title { font-size: 1.8rem; font-weight: 800; background: linear-gradient(115deg, #1d5e5b, #29837e); background-clip: text; -webkit-background-clip: text; color: transparent; border-right: 6px solid #ffcd6b; padding-right: 1rem; margin-bottom: 1.5rem; }
+        .input-group { margin-bottom: 1rem; }
+        .input-group label { display: block; font-weight: 600; color: #1f5e5b; margin-bottom: 0.25rem; }
+        .input-group input { width: 100%; padding: 0.9rem 1.2rem; border-radius: 1.5rem; border: 1.5px solid #d1e2df; background: #ffffff; font-family: 'Tajawal', sans-serif; font-size: 1rem; }
+        .input-group input:focus { outline: none; border-color: #ffcd6b; box-shadow: 0 0 0 3px rgba(255, 205, 107, 0.2); }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.7rem 1.5rem; border-radius: 3rem; font-weight: 700; border: none; cursor: pointer; transition: 0.2s; font-size: 0.95rem; }
+        .btn-primary { background: linear-gradient(95deg, #14665f, #1f8a82); color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .btn-primary:hover { transform: translateY(-2px); background: linear-gradient(95deg, #1f7a72, #259e94); }
+        .btn-secondary { background: #fff1da; color: #1a5f5c; border: 1px solid #ffcd6b; }
+        .btn-submit { background: #2e7d64; color: white; }
+        .question-card { background: #ffffff; border-radius: 1.5rem; padding: 1.5rem; margin-bottom: 1rem; border-right: 5px solid #ffcd6b; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03); }
+        .options-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 1rem; }
+        .option-item { background: #f3faf8; border: 1px solid #cde3df; border-radius: 3rem; padding: 0.5rem 1.5rem; cursor: pointer; transition: 0.1s; font-weight: 500; }
+        .option-item.selected { background: #ffcd6b; border-color: #e6b242; color: #1f2e2c; font-weight: 700; }
+        .strength-badge { background: #dcfce7; color: #15803d; padding: 0.25rem 1rem; border-radius: 2rem; display: inline-block; margin: 0.25rem; }
+        .weakness-badge { background: #fee2e2; color: #b91c1c; padding: 0.25rem 1rem; border-radius: 2rem; display: inline-block; margin: 0.25rem; }
+        .match-card { background: #eef7fc; border-radius: 1.5rem; padding: 1rem; margin-top: 1rem; border: 1px solid #c0e0dc; }
+        .contact-icons { display: flex; gap: 1rem; margin-top: 0.8rem; flex-wrap: wrap; }
+        .contact-link { display: inline-flex; align-items: center; gap: 0.6rem; background: white; padding: 0.4rem 1rem; border-radius: 2rem; text-decoration: none; font-weight: 600; transition: 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .telegram-btn { background: #26A5E4; color: white; }
+        .teams-btn { background: #4B53BC; color: white; }
+        .fixed-ai-btn { position: fixed; bottom: 25px; left: 25px; z-index: 99; background: linear-gradient(145deg, #9b59b6, #8e44ad); border-radius: 60px; padding: 10px 20px; font-weight: bold; gap: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.2); border: none; color: white; cursor: pointer; font-size: 0.9rem; }
+        .hidden { display: none; }
+        .result-item { padding: 12px; margin: 8px 0; border-radius: 12px; }
+        .result-correct { background: #e8f5e9; border-right: 4px solid #2e7d64; }
+        .result-wrong { background: #ffebee; border-right: 4px solid #c0392b; }
+        .help-options { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+        .help-card { background: #ffffff; border-radius: 1.5rem; padding: 1rem; border: 2px solid #e2e8f0; transition: 0.2s; cursor: pointer; }
+        .help-card:hover { border-color: #ffcd6b; box-shadow: 0 6px 18px rgba(0,0,0,0.05); transform: translateY(-2px); }
+        .help-card-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.3rem; }
+        .help-card-header i { font-size: 1.8rem; }
+        .help-card-title { font-size: 1.1rem; font-weight: 800; color: #1f5e5b; }
+        .help-card-desc { color: #4a5568; font-size: 0.85rem; padding-right: 2.8rem; }
+        mjx-container { overflow-x: auto; overflow-y: hidden; margin: 6px 0; }
+        @media (max-width: 700px) { .hero-header { flex-direction: column; text-align: center; gap: 0.8rem; } .section-title { font-size: 1.5rem; } .help-card-desc { padding-right: 1rem; } }
+    </style>
+</head>
+<body>
+<div class="app-wrapper">
+    <div class="hero-header">
+        <div class="title-section">
+            <h1><i class="fas fa-chalkboard-user"></i> تدريب الأقران | رياضيات 101</h1>
+            <p>تعاوني · تفاعلي · المدربة شروق الحربي</p>
+        </div>
+        <div class="beta-label"><i class="fas fa-handshake"></i> تدريب الأقران</div>
+    </div>
+
+    <div id="loginPanel" class="glass-card">
+        <div class="section-title"><i class="fas fa-user-graduate"></i> تسجيل الدخول</div>
+        <div class="input-group"><label>اسم المتدربة</label><input type="text" id="fullName" placeholder="مثال: جنى عبيد الحربي"></div>
+        <div class="input-group"><label>الرقم التدريبي</label><input type="text" id="studentId" placeholder="الرقم التدريبي"></div>
+        <div class="input-group"><label>معرف التلجرام (مثال: @username)</label><input type="text" id="telegramId" placeholder="@Username"></div>
+        <button id="startTrainingBtn" class="btn btn-primary"><i class="fas fa-play"></i> ابدأ حل الأسئلة</button>
+    </div>
+
+    <div id="questionsWrapper" class="glass-card hidden">
+        <div class="section-title"><i class="fas fa-question-circle"></i> الأسئلة التفاعلية</div>
+        <div id="singleQuestionContainer"></div>
+        <div style="display: flex; justify-content: space-between; margin-top: 20px;">
+            <button id="prevQuestionBtn" class="btn btn-secondary"><i class="fas fa-arrow-right"></i> السابق</button>
+            <button id="nextOrSubmitBtn" class="btn btn-primary">التالي <i class="fas fa-arrow-left"></i></button>
+        </div>
+    </div>
+
+    <div id="reportPanel" class="glass-card hidden">
+        <div class="section-title"><i class="fas fa-chart-line"></i> تقرير الأداء</div>
+        <div id="performanceReport"></div>
+        <div id="surveyBlock" class="hidden" style="background:#fff3e0; border-radius: 2rem; padding:1rem; margin-top:1rem;">
+            <p><i class="fas fa-clipboard-list"></i> 📝 لتكتملي التقرير، يُرجى تعبئة الاستبيان:</p>
+            <a href="https://forms.cloud.microsoft/r/f9ph4D1Suk?origin=lprLink" target="_blank" class="btn btn-primary" style="margin:10px 0; display:inline-flex;">اذهبي للاستبيان <i class="fas fa-external-link-alt"></i></a>
+            <button id="confirmSurveyDoneBtn" class="btn btn-secondary">✅ أكملت الاستبيان</button>
+        </div>
+        <div id="postSurveyOpts" class="hidden">
+            <div class="section-title" style="font-size:1.3rem;"><i class="fas fa-lightbulb"></i> لمساعدتك في نقاط الضعف</div>
+            <div class="help-options">
+                <div class="help-card" id="peerMatchingCard">
+                    <div class="help-card-header"><i class="fas fa-users" style="color: #1f8a82;"></i><span class="help-card-title">🔍 خوارزمية الربط الذكي (تدريب الأقران)</span></div>
+                    <div class="help-card-desc">يتم البحث عن زميلة مناسبة لك بناءً على نقاط القوة والضعف. ستظهر معلومات التواصل الخاصة بها (تلجرام / تيمز).</div>
+                </div>
+                <div class="help-card" id="aiAssistantCard">
+                    <div class="help-card-header"><i class="fas fa-robot" style="color: #9b59b6;"></i><span class="help-card-title">🤖 مدربة الذكاء الاصطناعي إشراقة</span></div>
+                    <div class="help-card-desc">مدربة ذكاء اصطناعي متخصصة في الرياضيات، تشرح نقاط ضعفك وتساعدك بالتمارين. تفتح المحادثة في نافذة جديدة.</div>
+                </div>
+                <div class="help-card" id="reportAgainCard">
+                    <div class="help-card-header"><i class="fas fa-file-pdf" style="color: #e63946;"></i><span class="help-card-title">📄 شهادة الإنجاز - تقرير الأداء</span></div>
+                    <div class="help-card-desc">شهادة وتقرير يحتوي على: الدرجة، نقاط القوة والضعف.</div>
+                </div>
+            </div>
+            <div id="matchResultArea"></div>
+        </div>
+    </div>
+</div>
+
+<button id="floatingAiBtn" class="fixed-ai-btn"><i class="fas fa-robot"></i> إشراقة AI</button>
+
+<script>
+    // ===================== قائمة الأسئلة الكاملة (40 سؤالاً) =====================
+    const questions = [
+        { text: "يرمز لمجموعة الأعداد الصحيحة بالرمز \\( \\mathbb{N} \\)", options: ["صح", "خطأ"], correct: "خطأ", skill: "المجموعات", explanation: "الرمز الصحيح للأعداد الصحيحة هو \\(\\mathbb{Z}\\)، بينما \\(\\mathbb{N}\\) للأعداد الطبيعية." },
+        { text: "إذا كانت \\( A = \\{1,2,3\\} \\) و \\( B = \\{-2\\} \\) فإن \\( \\{1,2,3,4,5\\} \\nsubseteq B \\)", options: ["صح", "خطأ"], correct: "صح", skill: "المجموعات", explanation: "المجموعة B تحتوي فقط على -2، لذلك المجموعة المعطاة ليست جزئية منها." },
+        { text: "ناتج \\( (6x^2 + 3x^3) \\div 3x^2 = x + 2 \\)", options: ["صح", "خطأ"], correct: "صح", skill: "كثيرات الحدود", explanation: "\\(6x^2 \\div 3x^2 = 2\\) و \\(3x^3 \\div 3x^2 = x\\) → الناتج \\(x+2\\)." },
+        { text: "العدد \\(-4\\) يمثل عدد طبيعي", options: ["صح", "خطأ"], correct: "خطأ", skill: "الأعداد", explanation: "الأعداد الطبيعية تبدأ من 1 ولا تشمل السالب." },
+        { text: "\\( A = \\{ x : x \\in \\mathbb{N}, x \\text{ زوجي}, 2 \\le x \\le 8 \\} = \\{2,4,6,8\\} \\)", options: ["صح", "خطأ"], correct: "صح", skill: "المجموعات", explanation: "الأعداد الزوجية الطبيعية بين 2 و8 هي 2,4,6,8." },
+        { text: "إذا كان \\( A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix} \\) فإن \\( 4A = \\begin{bmatrix} 4 & 8 \\\\ 12 & 16 \\end{bmatrix} \\)", options: ["صح", "خطأ"], correct: "صح", skill: "المصفوفات", explanation: "ضرب مصفوفة في عدد: كل عنصر يُضرب." },
+        { text: "ناتج \\( X(X+2) - (5-3X-2) = 11X-2X-3X-10 \\)", options: ["صح", "خطأ"], correct: "خطأ", skill: "كثيرات الحدود", explanation: "التبسيط الصحيح يعطي \\(X^2+5X-3\\)." },
+        { text: "إذا كان \\( 2X-5 = 4+2X \\) فإن المعادلة مستحيلة الحل", options: ["صح", "خطأ"], correct: "صح", skill: "المعادلات", explanation: "بطرح \\(2X\\) نحصل على \\(-5=4\\) مستحيل." },
+        { text: "إذا كان \\( 2x-10 = -2(5-x) \\) فإن المعادلة مستحيلة الحل", options: ["صح", "خطأ"], correct: "خطأ", skill: "المعادلات", explanation: "\\(2x-10 = -10+2x\\) → \\(0=0\\) حلول لا نهائية." },
+        { text: "رتبة المصفوفة \\( \\begin{bmatrix} 2 & 3 & 1 \\\\ 5 & 0 & 1 \\end{bmatrix} \\) هي \\(2 \\times 3\\)", options: ["صح", "خطأ"], correct: "صح", skill: "المصفوفات", explanation: "صفان وثلاثة أعمدة." },
+        { text: "إذا كان \\( A = \\begin{bmatrix} 1 & 2 \\\\ 3 & 4 \\end{bmatrix} , B = \\begin{bmatrix} 5 & 6 \\\\ 7 & 8 \\end{bmatrix} \\) فإن \\( A+B = \\)", options: ["\\(\\begin{bmatrix} 6 & 8 \\\\ 10 & 12 \\end{bmatrix}\\)", "\\(\\begin{bmatrix} 6 & 7 \\\\ 10 & 11 \\end{bmatrix}\\)", "\\(\\begin{bmatrix} 6 & 8 \\\\ 10 & 12 \\end{bmatrix}\\)", "\\(\\begin{bmatrix} 5 & 8 \\\\ 10 & 12 \\end{bmatrix}\\)"], correct: "\\(\\begin{bmatrix} 6 & 8 \\\\ 10 & 12 \\end{bmatrix}\\)", skill: "المصفوفات", explanation: "جمع العناصر المتناظرة." },
+        { text: "كثيرة حدود من الدرجة 3 ومعاملها الرئيسي 2 وحدها الثابت 7", options: ["\\(2x^2+5x+7\\)", "\\(2x^3+5x+7\\)", "\\(x^3+2x+7\\)", "\\(2x^3+7\\)"], correct: "\\(2x^3+5x+7\\)", skill: "كثيرات الحدود", explanation: "الدرجة الثالثة, المعامل 2, الحد الثابت 7." },
+        { text: "ناتج \\( X(X+2) + (X^2+1) - (2X+3) \\)", options: ["\\(2x^2+3x+4\\)", "\\(2x^2+3x-2\\)", "\\(2x^2+x-2\\)", "\\(2x^2+4\\)"], correct: "\\(2x^2+3x+4\\)", skill: "كثيرات الحدود", explanation: "تبسيط: \\(X^2+2X+X^2+1-2X-3 = 2X^2-2\\)." },
+        { text: "تحليل \\( x^2 - 9 \\)", options: ["\\((x-3)^2\\)", "\\((x-3)(x+3)\\)", "\\((x+3)^2\\)", "\\(x(x-9)\\)"], correct: "\\((x-3)(x+3)\\)", skill: "كثيرات الحدود", explanation: "فرق بين مربعين." },
+        { text: "تحليل \\( x^2 + 5x + 6 \\)", options: ["\\((x+1)(x+6)\\)", "\\((x+2)(x+3)\\)", "\\((x+5)(x+1)\\)", "\\((x-2)(x-3)\\)"], correct: "\\((x+2)(x+3)\\)", skill: "كثيرات الحدود", explanation: "عددان حاصل ضربهما 6 ومجموعهما 5 هما 2 و3." },
+        { text: "إذا كان \\( x^2 + 4x + 4 = 0 \\)", options: ["\\(x = 2\\)", "\\(x = -2\\)", "\\(x = 4\\)", "\\(x = -4\\)"], correct: "\\(x = -2\\)", skill: "المعادلات", explanation: "\\((x+2)^2=0\\) → \\(x=-2\\)." },
+        { text: "حل \\( 3x + 4 = 7 \\)", options: ["\\(x = 3\\)", "\\(x = 2\\)", "\\(x = 0\\)", "\\(x = 1\\)"], correct: "\\(x = 1\\)", skill: "المعادلات", explanation: "\\(3x = 3\\) → \\(x = 1\\)." },
+        { text: "\\( 2X-10 = -2(5-X) \\)", options: ["\\(x = 0\\)", "حلول لا نهائية", "\\(x = 5\\)", "مستحيلة"], correct: "حلول لا نهائية", skill: "المعادلات", explanation: "\\(2x-10 = -10+2x\\) → \\(0=0\\)." },
+        { text: "\\( x^2 + 6x + 8 = 0 \\)", options: ["\\(x = 2 , x = 4\\)", "\\(x = -2 , x = -4\\)", "\\(x = -2 , x = 4\\)", "\\(x = 2 , x = -4\\)"], correct: "\\(x = -2 , x = -4\\)", skill: "المعادلات", explanation: "حاصل ضرب 8 ومجموع 6." },
+        { text: "الفرق المتماثل \\(A \\oplus B\\) لـ \\(A=\\{1,3,5,6\\}, B=\\{2,5,9\\}\\)", options: ["\\(\\{1,3,6,2,9\\}\\)", "\\(\\{1,3,5,6,2,9\\}\\)", "\\(\\{5\\}\\)", "\\(\\{1,2,3,5,6,9\\}\\)"], correct: "\\(\\{1,3,6,2,9\\}\\)", skill: "المجموعات", explanation: "\\((A-B) \\cup (B-A) = \\{1,3,6\\} \\cup \\{2,9\\}\\)." },
+        { text: "\\( \\det \\begin{bmatrix} 2 & 2 \\\\ 3 & 4 \\end{bmatrix} = \\)", options: ["2", "4", "-2", "6"], correct: "2", skill: "المحددات", explanation: "\\( (2\\times4)-(2\\times3)=8-6=2\\)." },
+        { text: "\\( \\det(AB) \\) حيث \\(A=\\begin{bmatrix}1&2\\\\3&4\\end{bmatrix}, B=\\begin{bmatrix}5&6\\\\7&8\\end{bmatrix}\\)", options: ["-2", "0", "4", "-4"], correct: "4", skill: "المحددات", explanation: "\\(\\det(A)=-2, \\det(B)=-2, \\det(AB)=4\\)." },
+        { text: "مساحة مثلث \\( \\frac{1}{2} \\times 2 \\times 5 = \\)", options: ["10", "5", "7", "2.5"], correct: "5", skill: "الهندسة", explanation: "\\(\\frac{1}{2} \\times 2 \\times 5 = 5\\)." },
+        { text: "درجة \\( 4X^2 + 63 + 54X^2 \\)", options: ["1", "2", "3", "4"], correct: "2", skill: "كثيرات الحدود", explanation: "أكبر أس هو 2." },
+        { text: "\\( \\frac{2}{4} \\div \\frac{3}{6} = \\)", options: ["\\(\\frac{1}{2}\\)", "1", "2", "\\(\\frac{3}{4}\\)"], correct: "1", skill: "الكسور", explanation: "\\((\\frac{2}{4})\\times(\\frac{6}{3}) = \\frac{12}{12}=1\\)." },
+        { text: "\\( 4.2 \\times 2.1 = \\)", options: ["8.82", "8.84", "8.2", "6.3"], correct: "8.82", skill: "العمليات الحسابية", explanation: "\\(4.2 \\times 2.1 = 8.82\\)." },
+        { text: "\\( 151.34 \\div 65.8 = \\)", options: ["2.3", "2.0", "2.5", "2.8"], correct: "2.3", skill: "العمليات الحسابية", explanation: "\\(151.34 \\div 65.8 = 2.3\\)." },
+        { text: "إذا كان \\( 2X - B = 7 , X=2 \\) → \\(B=\\)", options: ["-3", "3", "4", "-4"], correct: "-3", skill: "المعادلات", explanation: "\\(4-B=7\\) → \\(B=-3\\)." },
+        { text: "إذا كان \\( 14X+B=-2X , X=2 \\) → \\(B=\\)", options: ["-32", "32", "-16", "16"], correct: "-32", skill: "المعادلات", explanation: "\\(28+B=-4\\) → \\(B=-32\\)." },
+        { text: "قيمة \\( 2x^2-4x+6 \\) عند \\(x=2\\)", options: ["6", "8", "10", "12"], correct: "6", skill: "كثيرات الحدود", explanation: "\\(2(4)-8+6=6\\)." },
+        { text: "تقريب 6.501 إلى جزء من عشرة", options: ["6.5", "6.6", "7", "6"], correct: "6.5", skill: "التقريب", explanation: "6.501 أقرب إلى 6.5." },
+        { text: "\\( 1.6 \\times 2.25 + 3.4 = \\)", options: ["7", "6.1", "7.2", "6.8"], correct: "7", skill: "العمليات الحسابية", explanation: "\\(3.6+3.4=7\\)." },
+        { text: "درجة \\( 45X^2 + 63 \\)", options: ["1", "2", "3", "0"], correct: "2", skill: "كثيرات الحدود", explanation: "أكبر أس 2." },
+        { text: "\\( 31.671 \\div 5.1 = \\)", options: ["6.21", "6.5", "6.2", "6.1"], correct: "6.21", skill: "العمليات الحسابية", explanation: "\\(31.671 \\div 5.1 = 6.21\\)." },
+        { text: "إذا كانت \\( 2X+6=0 \\) و \\( B \\) مربع كامل → \\(B=\\)", options: ["4", "9", "16", "25"], correct: "9", skill: "المعادلات", explanation: "\\(X=-3\\) → المربع 9." },
+        { text: "\\( \\det \\begin{bmatrix}1&2\\\\3&4\\end{bmatrix} = \\)", options: ["-2", "2", "1", "4"], correct: "-2", skill: "المحددات", explanation: "\\(4-6=-2\\)." },
+        { text: "\\( 2^3 + 3^2 - 5 = \\)", options: ["9", "12", "8", "6"], correct: "12", skill: "العمليات الحسابية", explanation: "\\(8+9-5=12\\)." },
+        { text: "العدد 2 عدد نسبي", options: ["صح", "خطأ"], correct: "صح", skill: "الأعداد", explanation: "يمكن كتابته كـ \\(\\frac{2}{1}\\)." },
+        { text: "إذا تساوت مصفوفتان ← \\(K =\\)", options: ["5", "10", "15", "20"], correct: "5", skill: "المصفوفات", explanation: "حسب تطابق العناصر K=5." },
+        { text: "قيمة \\( 4X+6-2X , X=2 \\)", options: ["6", "8", "10", "4"], correct: "10", skill: "كثيرات الحدود", explanation: "\\(8+6-4=10\\)." }
+    ];
+
+    let userAnswers = new Array(questions.length).fill(null);
+    let currentIndex = 0;
+    let studentData = {};
+    let surveyCompleted = false;
+    let strengthsList = [], weaknessesList = [];
+
+    const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbwXHRYLeZAVoJC2IqlPkLPFj3MkNZBnH7iQoUlyhT-zygTU9mkRrr4mtn2tJdD3fXfj/exec";
+    const ESHRAQA_PAGE = "https://shoroglectures.github.io/ai/";
+
+    function saveData() {
+        localStorage.setItem("peerAnswers_final_v9", JSON.stringify(userAnswers));
+        localStorage.setItem("peerCurrent_final_v9", currentIndex);
+        localStorage.setItem("peerStudent_final_v9", JSON.stringify(studentData));
+    }
+    function loadSaved() {
+        const savedAns = localStorage.getItem("peerAnswers_final_v9");
+        if(savedAns) userAnswers = JSON.parse(savedAns);
+        const savedIdx = localStorage.getItem("peerCurrent_final_v9");
+        if(savedIdx) currentIndex = parseInt(savedIdx);
+        const savedSt = localStorage.getItem("peerStudent_final_v9");
+        if(savedSt) studentData = JSON.parse(savedSt);
+    }
+
+    function renderCurrent() {
+        const container = document.getElementById("singleQuestionContainer");
+        if(!container) return;
+        const q = questions[currentIndex];
+        let optsHtml = '';
+        q.options.forEach(opt => {
+            const isSel = (userAnswers[currentIndex] === opt);
+            optsHtml += `<div class="option-item ${isSel ? 'selected' : ''}" data-val="${opt.replace(/"/g, '&quot;')}">${opt}</div>`;
+        });
+        container.innerHTML = `<div class="question-card"><div style="font-weight:800; margin-bottom:12px;">${currentIndex+1}. ${q.text}</div><div class="options-grid">${optsHtml}</div></div>`;
+        document.querySelectorAll(".option-item").forEach(el => {
+            el.addEventListener("click", () => {
+                const chosen = el.getAttribute("data-val");
+                userAnswers[currentIndex] = chosen;
+                saveData();
+                renderCurrent();
+            });
+        });
+        const nextBtn = document.getElementById("nextOrSubmitBtn");
+        if(currentIndex === questions.length - 1) {
+            nextBtn.innerHTML = '📤 تقديم الإجابات';
+            nextBtn.classList.add('btn-submit');
+        } else {
+            nextBtn.innerHTML = 'التالي <i class="fas fa-arrow-left"></i>';
+            nextBtn.classList.remove('btn-submit');
+        }
+        if(window.MathJax) MathJax.typesetPromise();
+    }
+
+    function analyze() {
+        const skillCor = {}, skillTot = {};
+        questions.forEach((q, i) => {
+            const sk = q.skill;
+            skillTot[sk] = (skillTot[sk]||0)+1;
+            if(userAnswers[i] === q.correct) skillCor[sk] = (skillCor[sk]||0)+1;
+        });
+        let str = [], weak = [];
+        for(let s in skillTot) {
+            let per = (skillCor[s]||0)/skillTot[s];
+            if(per >= 0.7) str.push(s);
+            else if(per <= 0.5) weak.push(s);
+        }
+        return { strengths: str, weaknesses: weak };
+    }
+
+    async function registerSheet(name, id, tg, st, wk) {
+        try {
+            const fd = new URLSearchParams();
+            fd.append("name", name); fd.append("studentId", id); fd.append("telegramId", tg);
+            fd.append("strengths", st); fd.append("weaknesses", wk);
+            await fetch(GOOGLE_SHEET_URL, { method: "POST", mode: "no-cors", body: fd });
+        } catch(e) {}
+    }
+
+    async function findPeerMatch(myStr, myWeak) {
+        try {
+            const resp = await fetch(GOOGLE_SHEET_URL);
+            const txt = await resp.text();
+            let data = [];
+            try { data = JSON.parse(txt); } catch(e) { data = []; }
+            if(!Array.isArray(data)) return null;
+            return data.find(p => p.weaknesses && p.strengths &&
+                myStr.some(s => p.weaknesses.includes(s)) &&
+                myWeak.some(w => p.strengths.includes(w)));
+        } catch(e) { return null; }
+    }
+
+    function showMatch(match) {
+        const area = document.getElementById("matchResultArea");
+        if(!match) { area.innerHTML = `<div class="match-card">⚠️ لم يتم إيجاد زميلة متطابقة حالياً.</div>`; return; }
+        const teamsMail = match.studentId ? `${match.studentId}@tvtc.gov.sa` : "";
+        area.innerHTML = `<div class="match-card"><i class="fas fa-user-check"></i> <strong>تم إيجاد زميلة مناسبة:</strong> ${match.name}<br><div class="contact-icons">${match.telegramId ? `<a href="https://t.me/${match.telegramId.replace('@','')}" target="_blank" class="contact-link telegram-btn"><i class="fab fa-telegram"></i> تلجرام</a>` : ''}${teamsMail ? `<a href="https://teams.microsoft.com/l/chat/0/0?users=${teamsMail}" target="_blank" class="contact-link teams-btn"><i class="fas fa-video"></i> Microsoft Teams</a>` : ''}</div><small>نقاط قوتها: ${match.strengths || '-'} | نقاط ضعفها: ${match.weaknesses || '-'}</small></div>`;
+    }
+
+    function buildFullReport() {
+        const score = userAnswers.filter((a,i) => a === questions[i].correct).length;
+        const { strengths, weaknesses } = analyze();
+        strengthsList = strengths; weaknessesList = weaknesses;
+        let details = '';
+        questions.forEach((q,i) => {
+            const correct = (userAnswers[i] === q.correct);
+            details += `<div class="result-item ${correct ? 'result-correct' : 'result-wrong'}"><strong>${i+1}. ${q.text}</strong><br>إجابتك: ${userAnswers[i] || 'لم تجب'} | الصحيح: ${q.correct}<br><small>📘 ${q.explanation}</small></div>`;
+        });
+        const reportHtml = `<p><strong>🎯 الدرجة النهائية:</strong> ${score} / ${questions.length}</p><p>✨ نقاط القوة: ${strengths.map(s=>`<span class="strength-badge">${s}</span>`).join('')||'لا توجد'}</p><p>⚠️ نقاط الضعف: ${weaknesses.map(w=>`<span class="weakness-badge">${w}</span>`).join('')||'لا توجد'}</p><p><strong>💡 نصائح:</strong> راجعي المفاهيم عبر المساعد الذكي إشراقة أو اطلبي تدريب الأقران.</p><hr><h4>📋 تفاصيل الإجابات والشرح:</h4>${details}`;
+        document.getElementById("performanceReport").innerHTML = reportHtml;
+        if(window.MathJax) MathJax.typesetPromise();
+    }
+
+    // ✅ شهادة الإنجاز - تقرير الأداء (مختصر بدون حقوق ملكية)
+    function generateCertificatePDF() {
+        const score = userAnswers.filter((a,i) => a === questions[i].correct).length;
+        const total = questions.length;
+        const percentage = Math.round((score/total)*100);
+        const { strengths, weaknesses } = analyze();
+        const now = new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+        
+        const certificateHtml = `
+        <!DOCTYPE html>
+        <html dir="rtl">
+        <head>
+            <meta charset="UTF-8">
+            <title>شهادة إنجاز - تقرير الأداء</title>
+            <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+            <style>
+                * { margin: 0; padding: 0; box-sizing: border-box; }
+                body { font-family: 'Tajawal', sans-serif; padding: 40px; background: white; direction: rtl; }
+                .certificate { max-width: 700px; margin: 0 auto; border: 8px double #1f8a82; padding: 30px; border-radius: 20px; background: #fff; }
+                .header { text-align: center; border-bottom: 2px solid #1f8a82; padding-bottom: 15px; margin-bottom: 20px; }
+                .header h1 { color: #1f5e5b; font-size: 28px; margin-bottom: 5px; }
+                .header h3 { color: #2e7d64; font-size: 18px; }
+                .info { background: #f0f9f7; padding: 15px; border-radius: 15px; margin-bottom: 20px; text-align: center; }
+                .info p { margin: 5px 0; }
+                .score { text-align: center; font-size: 35px; font-weight: bold; color: #e6b422; margin: 20px 0; }
+                .score span { font-size: 20px; }
+                .strength { background: #dcfce7; color: #15803d; padding: 8px 15px; border-radius: 25px; display: inline-block; margin: 5px; font-size: 14px; }
+                .weakness { background: #fee2e2; color: #b91c1c; padding: 8px 15px; border-radius: 25px; display: inline-block; margin: 5px; font-size: 14px; }
+                .signature { margin-top: 30px; text-align: center; border-top: 1px solid #ccc; padding-top: 20px; font-size: 14px; }
+                @media print {
+                    body { padding: 0; margin: 0; }
+                    .certificate { border: none; }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="certificate">
+                <div class="header">
+                    <h1>📜 شهادة إنجاز - تقرير الأداء</h1>
+                    <h3>الرياضيات العامة (MATH-101)</h3>
+                    <p>المدربة: <strong>شروق الحربي</strong></p>
+                </div>
+                <div class="info">
+                    <p><strong>الاسم:</strong> ${studentData.name || '.............'}</p>
+                    <p><strong>الرقم التدريبي:</strong> ${studentData.studentId || '.............'}</p>
+                    <p><strong>التاريخ:</strong> ${now}</p>
+                </div>
+                <div class="score">
+                    ${score} <span>من ${total}</span><br>
+                    <span style="font-size: 16px;">(${percentage}%)</span>
+                </div>
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="margin-bottom: 15px;">
+                        <strong>✨ نقاط القوة:</strong><br>
+                        ${strengths.map(s => `<span class="strength">${s}</span>`).join('') || 'لا توجد'}
+                    </div>
+                    <div>
+                        <strong>⚠️ نقاط الضعف:</strong><br>
+                        ${weaknesses.map(w => `<span class="weakness">${w}</span>`).join('') || 'لا توجد'}
+                    </div>
+                </div>
+            </div>
+            <script>
+                setTimeout(() => { window.print(); }, 500);
+            <\/script>
+        </body>
+        </html>`;
+        
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(certificateHtml);
+        printWindow.document.close();
+    }
+
+    // أحداث الأزرار
+    document.getElementById("startTrainingBtn").onclick = () => {
+        studentData = {
+            name: document.getElementById("fullName").value.trim(),
+            studentId: document.getElementById("studentId").value.trim(),
+            telegramId: document.getElementById("telegramId").value.trim()
+        };
+        if(!studentData.name || !studentData.studentId || !studentData.telegramId) { alert("الرجاء إدخال جميع البيانات"); return; }
+        document.getElementById("loginPanel").classList.add("hidden");
+        document.getElementById("questionsWrapper").classList.remove("hidden");
+        loadSaved();
+        renderCurrent();
+        saveData();
+    };
+    document.getElementById("nextOrSubmitBtn").onclick = () => {
+        if(currentIndex + 1 < questions.length) { currentIndex++; renderCurrent(); saveData(); }
+        else {
+            document.getElementById("questionsWrapper").classList.add("hidden");
+            buildFullReport();
+            document.getElementById("reportPanel").classList.remove("hidden");
+            document.getElementById("surveyBlock").classList.remove("hidden");
+            saveData();
+        }
+    };
+    document.getElementById("prevQuestionBtn").onclick = () => { if(currentIndex > 0) { currentIndex--; renderCurrent(); saveData(); } };
+    document.getElementById("confirmSurveyDoneBtn").onclick = async () => {
+        if(surveyCompleted) return;
+        surveyCompleted = true;
+        document.getElementById("surveyBlock").classList.add("hidden");
+        document.getElementById("postSurveyOpts").classList.remove("hidden");
+        const { strengths, weaknesses } = analyze();
+        await registerSheet(studentData.name, studentData.studentId, studentData.telegramId, strengths.join(", "), weaknesses.join(", "));
+        alert("✅ تم تسجيل بياناتك بنجاح!");
+    };
+    document.getElementById("peerMatchingCard").onclick = async () => {
+        const areaDiv = document.getElementById("matchResultArea");
+        areaDiv.innerHTML = `<div class="match-card">🔍 جاري البحث عن زميلة...</div>`;
+        const match = await findPeerMatch(strengthsList, weaknessesList);
+        showMatch(match);
+    };
+    document.getElementById("aiAssistantCard").onclick = () => window.open(ESHRAQA_PAGE, "_blank");
+    document.getElementById("reportAgainCard").onclick = () => generateCertificatePDF();
+    document.getElementById("floatingAiBtn").onclick = () => window.open(ESHRAQA_PAGE, "_blank");
+
+    loadSaved();
+    if(studentData.name) document.getElementById("startTrainingBtn").click();
+</script>
+</body>
+</html>
